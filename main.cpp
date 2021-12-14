@@ -22,19 +22,19 @@ void createcard(char* filename){
     std::stringstream s;
     vCard card;
     std::string command;
-    std::cout << "---[Steve please add program name here] vCard Creator Intepreter---" << std::endl;
+    std::cout << "---vCard Creator Intepreter---" << std::endl;
     while (true){
         command = "";
         std::cout << ">";
-        std::cin >> command;
+        std::getline (std::cin,command);
         if (command == "name"){
             std::string prefix,firstname,lastname;
             std::cout << "Prefix: ";
-            std::cin >> prefix;
+            std::getline (std::cin,prefix);
             std::cout << "First Name: ";
-            std::cin >> firstname;
+            std::getline (std::cin,firstname);
             std::cout << "Last Name: ";
-            std::cin >> lastname;
+            std::getline (std::cin,lastname);
             card << vCardProperty::createName(firstname,lastname,"",prefix);
         }
         else if (command == "birthday"){
@@ -50,28 +50,28 @@ void createcard(char* filename){
         else if (command == "address"){
             std::string street,city,state,country,postcode;
             std::cout << "Street: ";
-            std::cin >> street;
+            std::getline (std::cin,street);
             std::cout << "City: ";
-            std::cin >> city;
+            std::getline (std::cin,city);
             std::cout << "State or Province: ";
-            std::cin >> state;
+            std::getline (std::cin,state);
             std::cout << "Country: ";
-            std::cin >> country;
+            std::getline (std::cin,country);
             std::cout << "Postcode: ";
-            std::cin >> postcode;
+            std::getline (std::cin,postcode);
             card << vCardProperty::createAddress(street,city,state,postcode,country);
         }
         else if (command == "org"){
             std::string name;
             std::cout << "Name of the Organization: ";
-            std::cin >> name;
+            std::getline (std::cin,name);
             card << vCardProperty::createOrganization(name);
         }
         else if (command == "quit"){
             break;
         }
         else{
-            std::cout<<"Wrong command bro";
+            std::cout<<"Wrong command";
         }
         std::ofstream file;
         file.open(filename);

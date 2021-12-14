@@ -9,7 +9,7 @@ add_executable(vcardutil main.cpp)
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 
-add_library(vcardlib SHARED
+add_library(vcardlib STATIC
         src/vcard.cpp
         src/json_io.cpp
         src/text_io.cpp
